@@ -22,7 +22,7 @@ names(Questions)=unique(df$outcome)
 
 ui <- page_sidebar(
   # Application title
-  titlePanel("Intersectional Teen Mental Health Inequities"),
+  # titlePanel("Intersectional Teen Mental Health Inequities"),
   
   sidebar = sidebar(
     selectInput( 
@@ -64,6 +64,7 @@ ui <- page_sidebar(
   ),
   
   # Show a plot of the generated distribution
+  htmlOutput('Title'),
   htmlOutput('source'),
   plotOutput("line"),
   htmlOutput('foot')
@@ -89,7 +90,7 @@ server <- function(input, output, session) {
       filter(Geographic %in% input$division) 
   })
   
-
+  output$Title=renderText("<p><b>INTERSECTIONAL TEEN MENTAL HEALTH INEQUITIES</b></p>")
   source <- observe({
     output$source=renderText(paste0("<p><b>Question from CDC's <a href='https://www.cdc.gov/yrbs/index.html'>Youth Risk Behavior Survey</a>:</b>"," ","<i>",Questions[[input$Outcome]],"</i></p>"))
   })
@@ -211,6 +212,18 @@ server <- function(input, output, session) {
     }
     
   })
+  
+  output$downloadData <- downloadHandler(
+    
+    filename = function() { 
+      paste("data-", Sys.Date(), ".csv", sep="")
+    },
+    
+    content = function(file) {
+      
+      write.csv(subsetted(), file,row.names = FALSE)
+      
+    })
   
 }
 
