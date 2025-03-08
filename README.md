@@ -7,9 +7,6 @@ Quantifying intersectional health inequities and examining changes over time are
 ![Main Figure](https://github.com/JunaidMerchant/MAIHDA_YRBSS/blob/main/Figure2_colorcodedY.png)
 
 
-[Intersectional Youth Mental Health Interactive (preview):](https://junaidmerchant.shinyapps.io/YRBSS_MAIHDA/)
+Intersectional Youth Mental Health Interactive [ [link](https://junaidmerchant.shinyapps.io/YRBSS_MAIHDA/) ] (preview image):
 
-<iframe id="example1" src="https://junaidmerchant.shinyapps.io/YRBSS_MAIHDA/"
-style="border: non; width: 100%; height: 1000px"
-frameborder="0">
-</iframe>
+![Main Figure](https://github.com/JunaidMerchant/MAIHDA_YRBSS/blob/main/ShinyApp.png)
