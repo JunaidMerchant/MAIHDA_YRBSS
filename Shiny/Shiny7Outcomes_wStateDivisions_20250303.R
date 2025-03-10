@@ -5,7 +5,7 @@ library(ggplot2)
 library(ggExtra)
 
 
-df <- readr::read_csv("https://raw.githubusercontent.com/JunaidMerchant/MAIHDA_YRBSS/refs/heads/main/predict_probabilities/All7Outcomes_Strata40_wStateDivisions_reduced.csv")
+df <- readr::read_csv("https://raw.githubusercontent.com/JunaidMerchant/MAIHDA_YRBSS/refs/heads/main/Shiny/predict_probabilities/All7Outcomes_Strata40_wStateDivisions_reduced.csv")
 
 # df$Year=factor(df$Year)
 
@@ -66,8 +66,9 @@ ui <- page_sidebar(
   # Show a plot of the generated distribution
   htmlOutput('Title'),
   htmlOutput('source'),
-  plotOutput("line"),
-  htmlOutput('foot')
+  htmlOutput('foot'),
+  plotOutput("line")
+  
   
   
 )
@@ -92,10 +93,10 @@ server <- function(input, output, session) {
   
   output$Title=renderText("<p><b>INTERSECTIONAL TEEN MENTAL HEALTH INEQUITIES</b></p>")
   source <- observe({
-    output$source=renderText(paste0("<p><b>Question from CDC's <a href='https://www.cdc.gov/yrbs/index.html'>Youth Risk Behavior Survey</a>:</b>"," ","<i>",Questions[[input$Outcome]],"</i></p>"))
+    output$source=renderText(paste0("<p style='font-size:0.9em'><b>Question from CDC's <a href='https://www.cdc.gov/yrbs/index.html'>Youth Risk Behavior Survey</a>:</b>"," ","<i>",Questions[[input$Outcome]],"</i></p>"))
   })
   
-  output$foot=renderText("<p>* Predicted probabilities estimated using <a href='https://doi.org/10.1016/j.ssmph.2024.101664'>I-MAIHDA</a>. LGBTQ laws from <a href='https://www.lgbtmap.org/'>MAP</a>. Racial sentiment from <a href='https://doi.org/10.1097/EDE.0000000000001671'>BD4HE</a>.</p>")
+  output$foot=renderText("<p style='font-size:0.8em'>* Predicted probabilities estimated using <a href='https://doi.org/10.1016/j.ssmph.2024.101664'>I-MAIHDA</a>. LGBTQ laws from <a href='https://www.lgbtmap.org/'>MAP</a>. Racial sentiment from <a href='https://doi.org/10.1097/EDE.0000000000001671'>BD4HE</a>.</p>")
   
   
   
@@ -120,7 +121,7 @@ server <- function(input, output, session) {
           xlab("Year") +
           ylab("% YES (predicted probability)") +
           scale_color_manual(values = c("red4","grey2","gold2","green4","skyblue3")) +
-          ggtitle(input$Outcome) +
+          ggtitle(input$Outcome) + theme(legend.position="top") + 
           theme(plot.title = element_text( size=16, face="bold",hjust=.5))
         
         
@@ -147,7 +148,7 @@ server <- function(input, output, session) {
           xlab(input$division) +
           ylab("% YES (predicted probability)") +
           scale_color_manual(values = c("red4","grey2","gold2","green4","skyblue3")) +
-          ggtitle(input$Outcome) +
+          ggtitle(input$Outcome) + theme(legend.position="top") + 
           theme(plot.title = element_text( size=16, face="bold",hjust=.5))
         
         
@@ -159,7 +160,7 @@ server <- function(input, output, session) {
     if (input$x & !input$row){
       output$line <- renderPlot({
         
-        p <- ggplot(subsetted(), aes(factor(Year), predicted,shape=Gender,color=as.factor(Race))) +
+        p <- ggplot(subsetted(), aes(factor(Year), predicted,shape=Gender,color=Race)) +
           theme_light() +
           facet_grid(vars(Sexual_Orientation), vars(state)) +
           theme(strip.text.y = element_text(size = 10,face="bold",color="black")) +
@@ -175,7 +176,7 @@ server <- function(input, output, session) {
           xlab("Year") +
           ylab("% YES (predicted probability)") +
           scale_color_manual(values = c("skyblue3","grey2","orange3","darkgreen","red4","gold3","purple4")) +
-          ggtitle(input$Outcome) +
+          ggtitle(input$Outcome) + theme(legend.position="top") + 
           theme(plot.title = element_text( size=16, face="bold",hjust=.5))
         
         
@@ -186,7 +187,7 @@ server <- function(input, output, session) {
     if (!input$x & !input$row){
       output$line <- renderPlot({
         
-        p <- ggplot(subsetted(), aes(state, predicted,shape=Gender,color=as.factor(Race))) +
+        p <- ggplot(subsetted(), aes(state, predicted,shape=Gender,color=Race)) +
           theme_light() +
           facet_grid(vars(Sexual_Orientation), vars(factor(Year))) +
           theme(strip.text.y = element_text(size = 10,face="bold",color="black")) +
@@ -202,7 +203,7 @@ server <- function(input, output, session) {
           xlab(input$division) +
           ylab("% YES (predicted probability)") +
           scale_color_manual(values = c("skyblue3","grey2","orange3","darkgreen","red4","gold3","purple4")) +
-          ggtitle(input$Outcome) +
+          ggtitle(input$Outcome) + theme(legend.position="top") + 
           theme(plot.title = element_text( size=16, face="bold",hjust=.5))
         
         
