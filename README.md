@@ -1,4 +1,5 @@
-## /AJE: Project repository for paper under review at American Journal of Epidemiology
+## /AJE
+**Project repository for paper under review at American Journal of Epidemiology**
 
 ###  Intersectional inequities in suicide ideation by race, sexual orientation, and gender among U.S. high school students pre and post 2020: An application of random effects intersectional MAIHDA
 
@@ -7,7 +8,9 @@ Quantifying intersectional health inequities and examining changes over time are
 ![Main Figure](https://github.com/JunaidMerchant/MAIHDA_YRBSS/blob/main/Figure2_colorcodedY.png)
 
 
-### /AJE/code: Code for the analyses
+### /AJE/code
+
+**Code for the analyses**
 
 - `CleanAndMergeData.do`: Stata code for cleaning and merging data   
 - `MELogisticModels.do`: Stata code for running mixed effects logistic I-MAIHDA models
