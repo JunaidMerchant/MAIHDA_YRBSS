@@ -1,0 +1,857 @@
+__________________________________
+__________________________________
+suicide 
+__________________________________
+__________________________________
+
+__________________________________
+Null Model 1 
+__________________________________
+---------
+ summary: 
+---------
+ Family: binomial  ( logit )
+Formula:          suicide ~ 1 + (1 | gender_char:sexorient_char:race_char)
+Data: tmpData
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 333997.9  334019.6 -166997.0  333993.9    377360 
+
+Random effects:
+
+Conditional model:
+ Groups                               Name        Variance Std.Dev.
+ gender_char:sexorient_char:race_char (Intercept) 0.4208   0.6487  
+Number of obs: 377362, groups:  gender_char:sexorient_char:race_char, 40
+
+Conditional model:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -0.9035     0.1030  -8.769   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+ 
+ 
+------------------
+ model parameters: 
+------------------
+# Fixed Effects
+
+Parameter   | Odds Ratio |   SE |       95% CI |     z |      p
+---------------------------------------------------------------
+(Intercept) |       0.41 | 0.04 | [0.33, 0.50] | -8.77 | < .001
+
+# Random Effects
+
+Parameter                                            | Coefficient
+------------------------------------------------------------------
+SD (Intercept: gender_char:sexorient_char:race_char) |        0.65
+
+ 
+ 
+-------------------------
+ intra-class correlation: 
+-------------------------
+# Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.113
+  Unadjusted ICC: 0.113
+
+------------------
+ variance 
+------------------
+$var.fixed
+[1] 0
+
+$var.random
+[1] 0.4207704
+
+$var.residual
+[1] 3.289868
+
+$var.distribution
+[1] 3.289868
+
+$var.dispersion
+[1] 0
+
+$var.intercept
+gender_char:sexorient_char:race_char 
+                           0.4207704 
+
+
+ 
+ 
+
+__________________________________
+Model 2: fixed year 
+__________________________________
+---------
+ summary: 
+---------
+ Family: binomial  ( logit )
+Formula:          
+suicide ~ 1 + prepost2020 + (1 | gender_char:sexorient_char:race_char)
+Data: tmpData
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 333894.7  333927.2 -166944.3  333888.7    377359 
+
+Random effects:
+
+Conditional model:
+ Groups                               Name        Variance Std.Dev.
+ gender_char:sexorient_char:race_char (Intercept) 0.4157   0.6448  
+Number of obs: 377362, groups:  gender_char:sexorient_char:race_char, 40
+
+Conditional model:
+                      Estimate Std. Error z value Pr(>|z|)    
+(Intercept)          -0.936141   0.102472  -9.136   <2e-16 ***
+prepost2020Post-2020  0.098877   0.009604  10.295   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+ 
+ 
+------------------
+ model parameters: 
+------------------
+# Fixed Effects
+
+Parameter               | Odds Ratio |   SE |       95% CI |     z |      p
+---------------------------------------------------------------------------
+(Intercept)             |       0.39 | 0.04 | [0.32, 0.48] | -9.14 | < .001
+prepost2020 [Post-2020] |       1.10 | 0.01 | [1.08, 1.12] | 10.30 | < .001
+
+# Random Effects
+
+Parameter                                            | Coefficient
+------------------------------------------------------------------
+SD (Intercept: gender_char:sexorient_char:race_char) |        0.64
+
+ 
+ 
+-------------------------
+ intra-class correlation: 
+-------------------------
+# Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.112
+  Unadjusted ICC: 0.112
+
+------------------
+ variance & PCV 
+------------------
+$var.fixed
+[1] 0.001988265
+
+$var.random
+[1] 0.4157221
+
+$var.residual
+[1] 3.289868
+
+$var.distribution
+[1] 3.289868
+
+$var.dispersion
+[1] 0
+
+$var.intercept
+gender_char:sexorient_char:race_char 
+                           0.4157221 
+
+
+
+ 
+ 
+
+	Hausman Test
+
+data:  tmpData
+chisq = -1272.4, df = 1, p-value = 1
+alternative hypothesis: The Random Effect (GLS) is inconsistent
+
+
+__________________________________
+Model 3: random year 
+__________________________________
+---------
+ summary: 
+---------
+ Family: binomial  ( logit )
+Formula:          
+suicide ~ 1 + prepost2020 + (prepost2020 | gender_char:sexorient_char:race_char)
+Data: tmpData
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 333752.9  333807.1 -166871.5  333742.9    377357 
+
+Random effects:
+
+Conditional model:
+ Groups                               Name                 Variance Std.Dev.
+ gender_char:sexorient_char:race_char (Intercept)          0.41352  0.6431  
+                                      prepost2020Post-2020 0.03798  0.1949  
+ Corr  
+       
+ -0.05 
+Number of obs: 377362, groups:  gender_char:sexorient_char:race_char, 40
+
+Conditional model:
+                     Estimate Std. Error z value Pr(>|z|)    
+(Intercept)          -0.96380    0.10234  -9.417  < 2e-16 ***
+prepost2020Post-2020  0.16626    0.03572   4.655 3.24e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+ 
+ 
+------------------
+ model parameters: 
+------------------
+# Fixed Effects
+
+Parameter               | Odds Ratio |   SE |       95% CI |     z |      p
+---------------------------------------------------------------------------
+(Intercept)             |       0.38 | 0.04 | [0.31, 0.47] | -9.42 | < .001
+prepost2020 [Post-2020] |       1.18 | 0.04 | [1.10, 1.27] |  4.65 | < .001
+
+# Random Effects
+
+Parameter                                                                  | Coefficient
+----------------------------------------------------------------------------------------
+SD (Intercept: gender_char:sexorient_char:race_char)                       |        0.64
+SD (prepost2020Post-2020: gender_char:sexorient_char:race_char)            |        0.19
+Cor (Intercept~prepost2020Post-2020: gender_char:sexorient_char:race_char) |       -0.05
+
+ 
+ 
+-------------------------
+ intra-class correlation: 
+-------------------------
+# Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.113
+  Unadjusted ICC: 0.113
+
+------------------
+ variance & PCV 
+------------------
+$var.fixed
+[1] 0.005621663
+
+$var.random
+[1] 0.4204543
+
+$var.residual
+[1] 3.289868
+
+$var.distribution
+[1] 3.289868
+
+$var.dispersion
+[1] 0
+
+$var.intercept
+gender_char:sexorient_char:race_char 
+                           0.4135184 
+
+$var.slope
+gender_char:sexorient_char:race_char.prepost2020Post-2020 
+                                               0.03797953 
+
+$cor.slope_intercept
+gender_char:sexorient_char:race_char 
+                         -0.05411067 
+
+
+
+ 
+ 
+
+__________________________________
+Model 4: fixed main effects 
+__________________________________
+---------
+ summary: 
+---------
+ Family: binomial  ( logit )
+Formula:          
+suicide ~ 1 + prepost2020 + gender_char + sexorient_char + race_char +  
+    (1 | gender_char:sexorient_char:race_char)
+Data: tmpData
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 333759.8  333879.1 -166868.9  333737.8    377351 
+
+Random effects:
+
+Conditional model:
+ Groups                               Name        Variance Std.Dev.
+ gender_char:sexorient_char:race_char (Intercept) 0.006613 0.08132 
+Number of obs: 377362, groups:  gender_char:sexorient_char:race_char, 40
+
+Conditional model:
+                           Estimate Std. Error z value Pr(>|z|)    
+(Intercept)               -2.020418   0.041334  -48.88  < 2e-16 ***
+prepost2020Post-2020       0.098865   0.009599   10.30  < 2e-16 ***
+gender_charFemale          0.454678   0.030554   14.88  < 2e-16 ***
+sexorient_charBisexual     1.527891   0.040558   37.67  < 2e-16 ***
+sexorient_charHomosexual   1.255127   0.044040   28.50  < 2e-16 ***
+sexorient_charOthersexual  0.969375   0.041390   23.42  < 2e-16 ***
+race_charAsian            -0.252078   0.050909   -4.95 7.36e-07 ***
+race_charBlack            -0.221376   0.045855   -4.83 1.38e-06 ***
+race_charHispanic         -0.030519   0.044346   -0.69   0.4913    
+race_charMultiOtherRace    0.108437   0.046536    2.33   0.0198 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+ 
+ 
+------------------
+ model parameters: 
+------------------
+# Fixed Effects
+
+Parameter                    | Odds Ratio |       SE |       95% CI |      z |      p
+-------------------------------------------------------------------------------------
+(Intercept)                  |       0.13 | 5.48e-03 | [0.12, 0.14] | -48.88 | < .001
+prepost2020 [Post-2020]      |       1.10 |     0.01 | [1.08, 1.12] |  10.30 | < .001
+gender char [Female]         |       1.58 |     0.05 | [1.48, 1.67] |  14.88 | < .001
+sexorient char [Bisexual]    |       4.61 |     0.19 | [4.26, 4.99] |  37.67 | < .001
+sexorient char [Homosexual]  |       3.51 |     0.15 | [3.22, 3.82] |  28.50 | < .001
+sexorient char [Othersexual] |       2.64 |     0.11 | [2.43, 2.86] |  23.42 | < .001
+race char [Asian]            |       0.78 |     0.04 | [0.70, 0.86] |  -4.95 | < .001
+race char [Black]            |       0.80 |     0.04 | [0.73, 0.88] |  -4.83 | < .001
+race char [Hispanic]         |       0.97 |     0.04 | [0.89, 1.06] |  -0.69 | 0.491 
+race char [MultiOtherRace]   |       1.11 |     0.05 | [1.02, 1.22] |   2.33 | 0.020 
+
+# Random Effects
+
+Parameter                                            | Coefficient
+------------------------------------------------------------------
+SD (Intercept: gender_char:sexorient_char:race_char) |        0.08
+
+ 
+ 
+-------------------------
+ intra-class correlation: 
+-------------------------
+# Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.002
+  Unadjusted ICC: 0.002
+
+------------------
+ variance & PCV 
+------------------
+$var.fixed
+[1] 0.381893
+
+$var.random
+[1] 0.006613194
+
+$var.residual
+[1] 3.289868
+
+$var.distribution
+[1] 3.289868
+
+$var.dispersion
+[1] 0
+
+$var.intercept
+gender_char:sexorient_char:race_char 
+                         0.006613194 
+
+
+
+ 
+ 
+
+	Hausman Test
+
+data:  tmpData
+chisq = -13.597, df = 9, p-value = 1
+alternative hypothesis: The Random Effect (GLS) is inconsistent
+
+
+__________________________________
+Model 5: fixed main effects + random year 
+__________________________________
+---------
+ summary: 
+---------
+ Family: binomial  ( logit )
+Formula:          
+suicide ~ 1 + prepost2020 + gender_char + sexorient_char + race_char +  
+    (prepost2020 | gender_char:sexorient_char:race_char)
+Data: tmpData
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 333615.3  333756.2 -166794.6  333589.3    377349 
+
+Random effects:
+
+Conditional model:
+ Groups                               Name                 Variance Std.Dev.
+ gender_char:sexorient_char:race_char (Intercept)          0.02085  0.1444  
+                                      prepost2020Post-2020 0.04147  0.2036  
+ Corr  
+       
+ -0.85 
+Number of obs: 377362, groups:  gender_char:sexorient_char:race_char, 40
+
+Conditional model:
+                          Estimate Std. Error z value Pr(>|z|)    
+(Intercept)               -2.07906    0.05194  -40.03  < 2e-16 ***
+prepost2020Post-2020       0.16611    0.03688    4.50 6.67e-06 ***
+gender_charFemale          0.45315    0.03087   14.68  < 2e-16 ***
+sexorient_charBisexual     1.52138    0.04007   37.97  < 2e-16 ***
+sexorient_charHomosexual   1.30753    0.05603   23.34  < 2e-16 ***
+sexorient_charOthersexual  1.04337    0.07469   13.97  < 2e-16 ***
+race_charAsian            -0.24177    0.04998   -4.84 1.31e-06 ***
+race_charBlack            -0.19959    0.04656   -4.29 1.81e-05 ***
+race_charHispanic         -0.04713    0.04483   -1.05   0.2931    
+race_charMultiOtherRace    0.10050    0.04540    2.21   0.0268 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+ 
+ 
+------------------
+ model parameters: 
+------------------
+# Fixed Effects
+
+Parameter                    | Odds Ratio |       SE |       95% CI |      z |      p
+-------------------------------------------------------------------------------------
+(Intercept)                  |       0.13 | 6.49e-03 | [0.11, 0.14] | -40.03 | < .001
+prepost2020 [Post-2020]      |       1.18 |     0.04 | [1.10, 1.27] |   4.50 | < .001
+gender char [Female]         |       1.57 |     0.05 | [1.48, 1.67] |  14.68 | < .001
+sexorient char [Bisexual]    |       4.58 |     0.18 | [4.23, 4.95] |  37.97 | < .001
+sexorient char [Homosexual]  |       3.70 |     0.21 | [3.31, 4.13] |  23.34 | < .001
+sexorient char [Othersexual] |       2.84 |     0.21 | [2.45, 3.29] |  13.97 | < .001
+race char [Asian]            |       0.79 |     0.04 | [0.71, 0.87] |  -4.84 | < .001
+race char [Black]            |       0.82 |     0.04 | [0.75, 0.90] |  -4.29 | < .001
+race char [Hispanic]         |       0.95 |     0.04 | [0.87, 1.04] |  -1.05 | 0.293 
+race char [MultiOtherRace]   |       1.11 |     0.05 | [1.01, 1.21] |   2.21 | 0.027 
+
+# Random Effects
+
+Parameter                                                                  | Coefficient
+----------------------------------------------------------------------------------------
+SD (Intercept: gender_char:sexorient_char:race_char)                       |        0.14
+SD (prepost2020Post-2020: gender_char:sexorient_char:race_char)            |        0.20
+Cor (Intercept~prepost2020Post-2020: gender_char:sexorient_char:race_char) |       -0.85
+
+ 
+ 
+-------------------------
+ intra-class correlation: 
+-------------------------
+# Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.006
+  Unadjusted ICC: 0.005
+
+------------------
+ variance & PCV 
+------------------
+$var.fixed
+[1] 0.3951215
+
+$var.random
+[1] 0.01839086
+
+$var.residual
+[1] 3.289868
+
+$var.distribution
+[1] 3.289868
+
+$var.dispersion
+[1] 0
+
+$var.intercept
+gender_char:sexorient_char:race_char 
+                          0.02084828 
+
+$var.slope
+gender_char:sexorient_char:race_char.prepost2020Post-2020 
+                                               0.04146858 
+
+$cor.slope_intercept
+gender_char:sexorient_char:race_char 
+                          -0.8522823 
+
+
+
+ 
+ 
+
+__________________________________
+Model 6: fixed main effects + state + random year 
+__________________________________
+---------
+ summary: 
+---------
+ Family: binomial  ( logit )
+Formula:          
+suicide ~ 1 + prepost2020 + gender_char + sexorient_char + race_char +  
+    sitecode + (prepost2020 | gender_char:sexorient_char:race_char)
+Data: tmpData
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 332739.2  333259.6 -166321.6  332643.2    377314 
+
+Random effects:
+
+Conditional model:
+ Groups                               Name                 Variance Std.Dev.
+ gender_char:sexorient_char:race_char (Intercept)          0.01987  0.1410  
+                                      prepost2020Post-2020 0.03816  0.1954  
+ Corr  
+       
+ -0.84 
+Number of obs: 377362, groups:  gender_char:sexorient_char:race_char, 40
+
+Conditional model:
+                            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)               -1.872e+00  7.908e-02  -23.67  < 2e-16 ***
+prepost2020Post-2020       1.544e-01  3.577e-02    4.32 1.58e-05 ***
+gender_charFemale          4.550e-01  3.128e-02   14.55  < 2e-16 ***
+sexorient_charBisexual     1.528e+00  4.073e-02   37.51  < 2e-16 ***
+sexorient_charHomosexual   1.309e+00  5.709e-02   22.92  < 2e-16 ***
+sexorient_charOthersexual  1.054e+00  7.515e-02   14.02  < 2e-16 ***
+race_charAsian            -1.707e-01  5.112e-02   -3.34 0.000839 ***
+race_charBlack            -1.862e-01  4.772e-02   -3.90 9.53e-05 ***
+race_charHispanic          1.149e-02  4.635e-02    0.25 0.804246    
+race_charMultiOtherRace    1.393e-01  4.631e-02    3.01 0.002639 ** 
+sitecodeAR                 2.448e-02  7.000e-02    0.35 0.726536    
+sitecodeAZ                -1.172e-01  7.065e-02   -1.66 0.097179 .  
+sitecodeCA                 6.742e-03  7.599e-02    0.09 0.929307    
+sitecodeCO                -1.838e-01  7.580e-02   -2.42 0.015345 *  
+sitecodeCT                -6.348e-01  7.187e-02   -8.83  < 2e-16 ***
+sitecodeDE                -3.464e-01  7.459e-02   -4.64 3.42e-06 ***
+sitecodeFL                -4.377e-01  6.396e-02   -6.84 7.77e-12 ***
+sitecodeHI                -3.702e-01  6.405e-02   -5.78 7.43e-09 ***
+sitecodeIA                -1.583e-02  7.149e-02   -0.22 0.824727    
+sitecodeIL                -2.404e-01  6.545e-02   -3.67 0.000240 ***
+sitecodeIN                 2.047e-01  9.792e-02    2.09 0.036556 *  
+sitecodeKS                -2.496e-01  9.501e-02   -2.63 0.008604 ** 
+sitecodeKY                -2.717e-01  6.974e-02   -3.90 9.79e-05 ***
+sitecodeMD                -1.769e-01  6.004e-02   -2.95 0.003213 ** 
+sitecodeME                -3.844e-01  6.253e-02   -6.15 7.86e-10 ***
+sitecodeMI                -1.068e-01  6.562e-02   -1.63 0.103769    
+sitecodeMO                -2.195e-01  8.459e-02   -2.60 0.009451 ** 
+sitecodeMS                -9.192e-02  7.564e-02   -1.22 0.224283    
+sitecodeNC                -1.569e-01  6.710e-02   -2.34 0.019363 *  
+sitecodeND                -1.569e-01  6.933e-02   -2.26 0.023656 *  
+sitecodeNE                -1.075e-01  7.586e-02   -1.42 0.156261    
+sitecodeNH                -1.107e-01  6.134e-02   -1.80 0.071154 .  
+sitecodeNJ                -3.853e-01  8.673e-02   -4.44 8.90e-06 ***
+sitecodeNM                -2.932e-01  6.345e-02   -4.62 3.80e-06 ***
+sitecodeNV                -2.612e-01  7.222e-02   -3.62 0.000298 ***
+sitecodeNY                -4.471e-01  6.245e-02   -7.16 8.09e-13 ***
+sitecodeOK                 1.015e-02  6.949e-02    0.15 0.883890    
+sitecodePA                -2.760e-01  6.797e-02   -4.06 4.91e-05 ***
+sitecodeRI                -4.806e-01  7.119e-02   -6.75 1.47e-11 ***
+sitecodeSC                -1.419e-01  8.157e-02   -1.74 0.081840 .  
+sitecodeTX                -1.726e-01  6.980e-02   -2.47 0.013421 *  
+sitecodeUT                 1.326e-01  7.559e-02    1.75 0.079485 .  
+sitecodeVA                -3.290e-01  6.791e-02   -4.85 1.27e-06 ***
+sitecodeWI                -3.127e-01  7.064e-02   -4.43 9.56e-06 ***
+sitecodeWV                 7.558e-05  7.490e-02    0.00 0.999195    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+ 
+ 
+------------------
+ model parameters: 
+------------------
+# Fixed Effects
+
+Parameter                    | Odds Ratio |   SE |       95% CI |        z |      p
+-----------------------------------------------------------------------------------
+(Intercept)                  |       0.15 | 0.01 | [0.13, 0.18] |   -23.67 | < .001
+prepost2020 [Post-2020]      |       1.17 | 0.04 | [1.09, 1.25] |     4.32 | < .001
+gender char [Female]         |       1.58 | 0.05 | [1.48, 1.68] |    14.55 | < .001
+sexorient char [Bisexual]    |       4.61 | 0.19 | [4.26, 4.99] |    37.51 | < .001
+sexorient char [Homosexual]  |       3.70 | 0.21 | [3.31, 4.14] |    22.92 | < .001
+sexorient char [Othersexual] |       2.87 | 0.22 | [2.48, 3.32] |    14.02 | < .001
+race char [Asian]            |       0.84 | 0.04 | [0.76, 0.93] |    -3.34 | < .001
+race char [Black]            |       0.83 | 0.04 | [0.76, 0.91] |    -3.90 | < .001
+race char [Hispanic]         |       1.01 | 0.05 | [0.92, 1.11] |     0.25 | 0.804 
+race char [MultiOtherRace]   |       1.15 | 0.05 | [1.05, 1.26] |     3.01 | 0.003 
+sitecode [AR]                |       1.02 | 0.07 | [0.89, 1.18] |     0.35 | 0.727 
+sitecode [AZ]                |       0.89 | 0.06 | [0.77, 1.02] |    -1.66 | 0.097 
+sitecode [CA]                |       1.01 | 0.08 | [0.87, 1.17] |     0.09 | 0.929 
+sitecode [CO]                |       0.83 | 0.06 | [0.72, 0.97] |    -2.42 | 0.015 
+sitecode [CT]                |       0.53 | 0.04 | [0.46, 0.61] |    -8.83 | < .001
+sitecode [DE]                |       0.71 | 0.05 | [0.61, 0.82] |    -4.64 | < .001
+sitecode [FL]                |       0.65 | 0.04 | [0.57, 0.73] |    -6.84 | < .001
+sitecode [HI]                |       0.69 | 0.04 | [0.61, 0.78] |    -5.78 | < .001
+sitecode [IA]                |       0.98 | 0.07 | [0.86, 1.13] |    -0.22 | 0.825 
+sitecode [IL]                |       0.79 | 0.05 | [0.69, 0.89] |    -3.67 | < .001
+sitecode [IN]                |       1.23 | 0.12 | [1.01, 1.49] |     2.09 | 0.037 
+sitecode [KS]                |       0.78 | 0.07 | [0.65, 0.94] |    -2.63 | 0.009 
+sitecode [KY]                |       0.76 | 0.05 | [0.66, 0.87] |    -3.90 | < .001
+sitecode [MD]                |       0.84 | 0.05 | [0.74, 0.94] |    -2.95 | 0.003 
+sitecode [ME]                |       0.68 | 0.04 | [0.60, 0.77] |    -6.15 | < .001
+sitecode [MI]                |       0.90 | 0.06 | [0.79, 1.02] |    -1.63 | 0.104 
+sitecode [MO]                |       0.80 | 0.07 | [0.68, 0.95] |    -2.60 | 0.009 
+sitecode [MS]                |       0.91 | 0.07 | [0.79, 1.06] |    -1.22 | 0.224 
+sitecode [NC]                |       0.85 | 0.06 | [0.75, 0.97] |    -2.34 | 0.019 
+sitecode [ND]                |       0.85 | 0.06 | [0.75, 0.98] |    -2.26 | 0.024 
+sitecode [NE]                |       0.90 | 0.07 | [0.77, 1.04] |    -1.42 | 0.156 
+sitecode [NH]                |       0.90 | 0.05 | [0.79, 1.01] |    -1.80 | 0.071 
+sitecode [NJ]                |       0.68 | 0.06 | [0.57, 0.81] |    -4.44 | < .001
+sitecode [NM]                |       0.75 | 0.05 | [0.66, 0.84] |    -4.62 | < .001
+sitecode [NV]                |       0.77 | 0.06 | [0.67, 0.89] |    -3.62 | < .001
+sitecode [NY]                |       0.64 | 0.04 | [0.57, 0.72] |    -7.16 | < .001
+sitecode [OK]                |       1.01 | 0.07 | [0.88, 1.16] |     0.15 | 0.884 
+sitecode [PA]                |       0.76 | 0.05 | [0.66, 0.87] |    -4.06 | < .001
+sitecode [RI]                |       0.62 | 0.04 | [0.54, 0.71] |    -6.75 | < .001
+sitecode [SC]                |       0.87 | 0.07 | [0.74, 1.02] |    -1.74 | 0.082 
+sitecode [TX]                |       0.84 | 0.06 | [0.73, 0.96] |    -2.47 | 0.013 
+sitecode [UT]                |       1.14 | 0.09 | [0.98, 1.32] |     1.75 | 0.079 
+sitecode [VA]                |       0.72 | 0.05 | [0.63, 0.82] |    -4.85 | < .001
+sitecode [WI]                |       0.73 | 0.05 | [0.64, 0.84] |    -4.43 | < .001
+sitecode [WV]                |       1.00 | 0.07 | [0.86, 1.16] | 1.01e-03 | > .999
+
+# Random Effects
+
+Parameter                                                                  | Coefficient
+----------------------------------------------------------------------------------------
+SD (Intercept: gender_char:sexorient_char:race_char)                       |        0.14
+SD (prepost2020Post-2020: gender_char:sexorient_char:race_char)            |        0.20
+Cor (Intercept~prepost2020Post-2020: gender_char:sexorient_char:race_char) |       -0.84
+
+ 
+ 
+-------------------------
+ intra-class correlation: 
+-------------------------
+# Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.005
+  Unadjusted ICC: 0.005
+
+------------------
+ variance & PCV 
+------------------
+$var.fixed
+[1] 0.4152999
+
+$var.random
+[1] 0.01763523
+
+$var.residual
+[1] 3.289868
+
+$var.distribution
+[1] 3.289868
+
+$var.dispersion
+[1] 0
+
+$var.intercept
+gender_char:sexorient_char:race_char 
+                          0.01986937 
+
+$var.slope
+gender_char:sexorient_char:race_char.prepost2020Post-2020 
+                                               0.03816433 
+
+$cor.slope_intercept
+gender_char:sexorient_char:race_char 
+                          -0.8357655 
+
+
+
+__________________________________
+Model 7: fixed main effects + state + agenum + random year 
+__________________________________
+---------
+ summary: 
+---------
+ Family: binomial  ( logit )
+Formula:          
+suicide ~ 1 + prepost2020 + gender_char + sexorient_char + race_char +  
+    sitecode + agenum + (prepost2020 | gender_char:sexorient_char:race_char)
+Data: tmpData
+
+      AIC       BIC    logLik  deviance  df.resid 
+ 332494.7  333025.8 -166198.3  332396.7    377076 
+
+Random effects:
+
+Conditional model:
+ Groups                               Name                 Variance Std.Dev.
+ gender_char:sexorient_char:race_char (Intercept)          0.01968  0.1403  
+                                      prepost2020Post-2020 0.03831  0.1957  
+ Corr  
+       
+ -0.83 
+Number of obs: 377125, groups:  gender_char:sexorient_char:race_char, 40
+
+Conditional model:
+                           Estimate Std. Error z value Pr(>|z|)    
+(Intercept)               -1.577660   0.098343  -16.04  < 2e-16 ***
+prepost2020Post-2020       0.150505   0.035843    4.20 2.68e-05 ***
+gender_charFemale          0.452975   0.031251   14.49  < 2e-16 ***
+sexorient_charBisexual     1.529252   0.040716   37.56  < 2e-16 ***
+sexorient_charHomosexual   1.310000   0.057010   22.98  < 2e-16 ***
+sexorient_charOthersexual  1.052277   0.074928   14.04  < 2e-16 ***
+race_charAsian            -0.171191   0.051068   -3.35 0.000802 ***
+race_charBlack            -0.186221   0.047614   -3.91 9.19e-05 ***
+race_charHispanic          0.010873   0.046286    0.23 0.814284    
+race_charMultiOtherRace    0.137133   0.046302    2.96 0.003059 ** 
+sitecodeAR                 0.025241   0.070010    0.36 0.718450    
+sitecodeAZ                -0.120262   0.070660   -1.70 0.088757 .  
+sitecodeCA                 0.004928   0.076006    0.06 0.948304    
+sitecodeCO                -0.191377   0.075833   -2.52 0.011614 *  
+sitecodeCT                -0.637765   0.071876   -8.87  < 2e-16 ***
+sitecodeDE                -0.346983   0.074596   -4.65 3.29e-06 ***
+sitecodeFL                -0.439851   0.063972   -6.88 6.17e-12 ***
+sitecodeHI                -0.374513   0.064061   -5.85 5.03e-09 ***
+sitecodeIA                -0.021515   0.071525   -0.30 0.763564    
+sitecodeIL                -0.241748   0.065458   -3.69 0.000221 ***
+sitecodeIN                 0.202138   0.097922    2.06 0.038992 *  
+sitecodeKS                -0.254276   0.095032   -2.68 0.007458 ** 
+sitecodeKY                -0.274845   0.069747   -3.94 8.13e-05 ***
+sitecodeMD                -0.185116   0.060069   -3.08 0.002058 ** 
+sitecodeME                -0.388378   0.062541   -6.21 5.30e-10 ***
+sitecodeMI                -0.111224   0.065640   -1.69 0.090178 .  
+sitecodeMO                -0.223902   0.084599   -2.65 0.008130 ** 
+sitecodeMS                -0.097739   0.075658   -1.29 0.196410    
+sitecodeNC                -0.158672   0.067105   -2.36 0.018052 *  
+sitecodeND                -0.156397   0.069340   -2.26 0.024101 *  
+sitecodeNE                -0.113475   0.075892   -1.50 0.134860    
+sitecodeNH                -0.112983   0.061347   -1.84 0.065518 .  
+sitecodeNJ                -0.384115   0.086741   -4.43 9.50e-06 ***
+sitecodeNM                -0.298631   0.063462   -4.71 2.53e-06 ***
+sitecodeNV                -0.264541   0.072238   -3.66 0.000250 ***
+sitecodeNY                -0.455149   0.062476   -7.29 3.21e-13 ***
+sitecodeOK                 0.004560   0.069517    0.07 0.947701    
+sitecodePA                -0.279887   0.067991   -4.12 3.85e-05 ***
+sitecodeRI                -0.482379   0.071199   -6.78 1.24e-11 ***
+sitecodeSC                -0.143908   0.081571   -1.76 0.077698 .  
+sitecodeTX                -0.172277   0.069806   -2.47 0.013589 *  
+sitecodeUT                 0.129437   0.075596    1.71 0.086857 .  
+sitecodeVA                -0.336994   0.067945   -4.96 7.06e-07 ***
+sitecodeWI                -0.316022   0.070652   -4.47 7.71e-06 ***
+sitecodeWV                -0.002187   0.074915   -0.03 0.976713    
+agenum                    -0.018228   0.003631   -5.02 5.15e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+ 
+ 
+------------------
+ model parameters: 
+------------------
+# Fixed Effects
+
+Parameter                    | Odds Ratio |       SE |       95% CI |      z |      p
+-------------------------------------------------------------------------------------
+(Intercept)                  |       0.21 |     0.02 | [0.17, 0.25] | -16.04 | < .001
+prepost2020 [Post-2020]      |       1.16 |     0.04 | [1.08, 1.25] |   4.20 | < .001
+gender char [Female]         |       1.57 |     0.05 | [1.48, 1.67] |  14.49 | < .001
+sexorient char [Bisexual]    |       4.61 |     0.19 | [4.26, 5.00] |  37.56 | < .001
+sexorient char [Homosexual]  |       3.71 |     0.21 | [3.31, 4.14] |  22.98 | < .001
+sexorient char [Othersexual] |       2.86 |     0.21 | [2.47, 3.32] |  14.04 | < .001
+race char [Asian]            |       0.84 |     0.04 | [0.76, 0.93] |  -3.35 | < .001
+race char [Black]            |       0.83 |     0.04 | [0.76, 0.91] |  -3.91 | < .001
+race char [Hispanic]         |       1.01 |     0.05 | [0.92, 1.11] |   0.23 | 0.814 
+race char [MultiOtherRace]   |       1.15 |     0.05 | [1.05, 1.26] |   2.96 | 0.003 
+sitecode [AR]                |       1.03 |     0.07 | [0.89, 1.18] |   0.36 | 0.718 
+sitecode [AZ]                |       0.89 |     0.06 | [0.77, 1.02] |  -1.70 | 0.089 
+sitecode [CA]                |       1.00 |     0.08 | [0.87, 1.17] |   0.06 | 0.948 
+sitecode [CO]                |       0.83 |     0.06 | [0.71, 0.96] |  -2.52 | 0.012 
+sitecode [CT]                |       0.53 |     0.04 | [0.46, 0.61] |  -8.87 | < .001
+sitecode [DE]                |       0.71 |     0.05 | [0.61, 0.82] |  -4.65 | < .001
+sitecode [FL]                |       0.64 |     0.04 | [0.57, 0.73] |  -6.88 | < .001
+sitecode [HI]                |       0.69 |     0.04 | [0.61, 0.78] |  -5.85 | < .001
+sitecode [IA]                |       0.98 |     0.07 | [0.85, 1.13] |  -0.30 | 0.764 
+sitecode [IL]                |       0.79 |     0.05 | [0.69, 0.89] |  -3.69 | < .001
+sitecode [IN]                |       1.22 |     0.12 | [1.01, 1.48] |   2.06 | 0.039 
+sitecode [KS]                |       0.78 |     0.07 | [0.64, 0.93] |  -2.68 | 0.007 
+sitecode [KY]                |       0.76 |     0.05 | [0.66, 0.87] |  -3.94 | < .001
+sitecode [MD]                |       0.83 |     0.05 | [0.74, 0.93] |  -3.08 | 0.002 
+sitecode [ME]                |       0.68 |     0.04 | [0.60, 0.77] |  -6.21 | < .001
+sitecode [MI]                |       0.89 |     0.06 | [0.79, 1.02] |  -1.69 | 0.090 
+sitecode [MO]                |       0.80 |     0.07 | [0.68, 0.94] |  -2.65 | 0.008 
+sitecode [MS]                |       0.91 |     0.07 | [0.78, 1.05] |  -1.29 | 0.196 
+sitecode [NC]                |       0.85 |     0.06 | [0.75, 0.97] |  -2.36 | 0.018 
+sitecode [ND]                |       0.86 |     0.06 | [0.75, 0.98] |  -2.26 | 0.024 
+sitecode [NE]                |       0.89 |     0.07 | [0.77, 1.04] |  -1.50 | 0.135 
+sitecode [NH]                |       0.89 |     0.05 | [0.79, 1.01] |  -1.84 | 0.066 
+sitecode [NJ]                |       0.68 |     0.06 | [0.57, 0.81] |  -4.43 | < .001
+sitecode [NM]                |       0.74 |     0.05 | [0.66, 0.84] |  -4.71 | < .001
+sitecode [NV]                |       0.77 |     0.06 | [0.67, 0.88] |  -3.66 | < .001
+sitecode [NY]                |       0.63 |     0.04 | [0.56, 0.72] |  -7.29 | < .001
+sitecode [OK]                |       1.00 |     0.07 | [0.88, 1.15] |   0.07 | 0.948 
+sitecode [PA]                |       0.76 |     0.05 | [0.66, 0.86] |  -4.12 | < .001
+sitecode [RI]                |       0.62 |     0.04 | [0.54, 0.71] |  -6.78 | < .001
+sitecode [SC]                |       0.87 |     0.07 | [0.74, 1.02] |  -1.76 | 0.078 
+sitecode [TX]                |       0.84 |     0.06 | [0.73, 0.97] |  -2.47 | 0.014 
+sitecode [UT]                |       1.14 |     0.09 | [0.98, 1.32] |   1.71 | 0.087 
+sitecode [VA]                |       0.71 |     0.05 | [0.62, 0.82] |  -4.96 | < .001
+sitecode [WI]                |       0.73 |     0.05 | [0.63, 0.84] |  -4.47 | < .001
+sitecode [WV]                |       1.00 |     0.07 | [0.86, 1.16] |  -0.03 | 0.977 
+agenum                       |       0.98 | 3.57e-03 | [0.97, 0.99] |  -5.02 | < .001
+
+# Random Effects
+
+Parameter                                                                  | Coefficient
+----------------------------------------------------------------------------------------
+SD (Intercept: gender_char:sexorient_char:race_char)                       |        0.14
+SD (prepost2020Post-2020: gender_char:sexorient_char:race_char)            |        0.20
+Cor (Intercept~prepost2020Post-2020: gender_char:sexorient_char:race_char) |       -0.83
+Cov=-0.0228973269
+ 
+ 
+-------------------------
+ intra-class correlation: 
+-------------------------
+# Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.005
+  Unadjusted ICC: 0.005
+
+------------------
+ variance & PCV 
+------------------
+$var.fixed
+[1] 0.4157323
+
+$var.random
+[1] 0.01755793
+
+$var.residual
+[1] 3.289868
+
+$var.distribution
+[1] 3.289868
+
+$var.dispersion
+[1] 0
+
+$var.intercept
+gender_char:sexorient_char:race_char 
+                          0.01968424 
+
+$var.slope
+gender_char:sexorient_char:race_char.prepost2020Post-2020 
+                                               0.03830964 
+bt st var slope=0.0121992262                                            
+
+$cor.slope_intercept
+gender_char:sexorient_char:race_char 
+                          -0.8338183 
+
+
