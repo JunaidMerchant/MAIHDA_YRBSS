@@ -24,7 +24,9 @@ Analysis ready data files are too big to share on GitHub but can be requested.
 ### /AJE/results: model results and visualizations files
 
 
-## /AJE/Shiny:
+## Shiny
+
+**On-going work in progress developing interactive YRBSS outcome results**
 
 Intersectional Youth Mental Health Interactive [ [link](https://junaidmerchant.shinyapps.io/YRBSS_MAIHDA/) ] (preview image):
 
