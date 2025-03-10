@@ -30,4 +30,4 @@ Analysis ready data files are too big to share on GitHub but can be requested.
 
 Intersectional Youth Mental Health Interactive [ [link](https://junaidmerchant.shinyapps.io/YRBSS_MAIHDA/) ] (preview image):
 
-![Main Figure](https://github.com/JunaidMerchant/MAIHDA_YRBSS/blob/main/Shiny/ShinyApp.pngg)
+![Main Figure](https://github.com/JunaidMerchant/MAIHDA_YRBSS/blob/main/Shiny/ShinyApp.png)
