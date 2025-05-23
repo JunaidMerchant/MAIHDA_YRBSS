@@ -1,4 +1,4 @@
-# U.S. Teen Mental Health at the Intersections of Race, Gender, and Sexual Orientation
+U.S. Teen Mental Health at the Intersections of Race, Gender, and Sexual Orientation
 
 ## /AJE
 **Repository for a paper in the special issue on social epidemiology methods at the American Journal of Epidemiology**
